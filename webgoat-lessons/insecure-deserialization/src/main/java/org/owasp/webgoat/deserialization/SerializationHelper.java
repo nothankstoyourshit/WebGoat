@@ -18,6 +18,7 @@ public class SerializationHelper {
         byte[] data = Base64.getDecoder().decode(s);
         ObjectInputStream ois = new ObjectInputStream(
                 new ByteArrayInputStream(data));
+        day00.Deserialization.enableObjectFilterIfUnprotected(ois);
         Object o = ois.readObject();
         ois.close();
         return o;
